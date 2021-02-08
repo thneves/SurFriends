@@ -28,6 +28,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'hirb', '~> 0.7.3'
+gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
+gem 'rails-controller-testing'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
