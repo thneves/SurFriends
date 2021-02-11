@@ -42,4 +42,18 @@ RSpec.describe "Login and Authentication", type: :feature do
       it { should_not have_link('Log In'), href: login_path }
     end
   end
+
+  describe "Authorization" do
+    describe "for non-signed-in users" do
+      let(:user) { FactoryGirl.create(:user) }
+
+      describe "in the Users controller" do
+        
+        describe "visit the editing page" do
+          before { visit edit_user_path(user) }
+          it { should have_title("Log In - #{base_title}") }
+        end
+      end
+    end
+  end
 end

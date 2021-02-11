@@ -69,4 +69,44 @@ RSpec.describe "Users Pages", type: :feature do
       end
     end
   end
+
+  describe "edit" do
+    let(:user) { FactoryGirl.create(:user) }
+    before do
+      visit login_path
+      fill_in "Email", with: user.email
+      fill_in "Password", with: user.password
+      click_button "Log In"
+      visit edit_user_path(user)
+    end
+
+    describe "page" do
+      it { should have_content("Update Profile") }
+      it { should have_title("Edit Profile") }
+      it { should have_link("Update", href: 'http://gravatar.com/emails') }
+    end
+
+    describe "edit with invalid info" do
+      before { click_button "Save Changes" }
+      it { should have_content('error') }
+    end
+
+    describe "edit with valid info" do
+      # let(:new_name) { "New Name" }
+      # let(:new_email) { "new@example.com " }
+      before do
+        fill_in "Name", with: "new name"
+        fill_in "Email", with: "new@email.com"
+        fill_in "Password", with: user.password 
+        fill_in "Confirm Password", with: user.password
+        click_button "Save Changes"
+      end
+
+      it { should have_title("new name - #{base_title}") }
+      it { should have_selector('div.alert.alert-success') }
+      it { should have_link('Log Out', href: logout_path) }
+      specify { expect(user.reload.name).to eq "new name" }
+      specify { expect(user.reload.email).to eq "new@email.com" }
+    end
+  end
 end
