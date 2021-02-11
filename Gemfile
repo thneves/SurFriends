@@ -29,7 +29,6 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'hirb', '~> 0.7.3'
 gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
-gem 'rails-controller-testing'
 gem 'bcrypt', '~> 3.1', '>= 3.1.16'
 
 # Use ActiveStorage variant
@@ -60,7 +59,7 @@ group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
-  gem 'rspec'
+  gem 'rspec-rails'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
 end
