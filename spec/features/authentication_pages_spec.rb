@@ -39,6 +39,8 @@ RSpec.describe "Login and Authentication", type: :feature do
       it { should have_title(user.name) }
       it { should have_link('Profile'), href: user_path(user) }
       it { should have_link('Log Out'), href: logout_path }
+      it { should have_link('Surfers'), href: users_path }
+      it { should have_link('Settings', href: edit_user_path(user))}
       it { should_not have_link('Log In'), href: login_path }
     end
   end
@@ -53,6 +55,33 @@ RSpec.describe "Login and Authentication", type: :feature do
           before { visit edit_user_path(user) }
           it { should have_title("Log In - #{base_title}") }
         end
+      end
+
+      describe "visiting user index" do
+        before { visit users_path }
+        it { should have_title("Log In - #{base_title}") }
+      end
+    end 
+  end
+
+  describe "Index" do
+    let(:user) { FactoryGirl.create(:user) }
+    before do
+      visit login_path
+      fill_in "Email", with: user.email
+      fill_in "Password", with: user.password
+      click_button "Log In"
+      FactoryGirl.create(:user, name: "Bob", email: "bob@example.com")
+      FactoryGirl.create(:user, name: "Ben", email: "ben@example.com")
+      visit users_path
+    end
+
+    it { should have_title("All Surfers - #{base_title}") }
+    it { should have_content("All Surfers") }
+
+    it "should list each user" do
+      User.all.each do |user|
+        expect(page).to have_selector('li', text: user.name)
       end
     end
   end
