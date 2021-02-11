@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     else
       # Create an error message.
       flash.now[:error] = "Invalid email or password! you're not surfing yet" # Not quite right yet
-      redirect_to root_path
+      render 'new'
     end
   end
 
