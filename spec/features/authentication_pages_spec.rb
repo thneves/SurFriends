@@ -46,6 +46,7 @@ RSpec.describe "Login and Authentication", type: :feature do
   end
 
   describe "Authorization" do
+
     describe "for non-signed-in users" do
       let(:user) { FactoryBot.create(:user) }
 
@@ -61,7 +62,7 @@ RSpec.describe "Login and Authentication", type: :feature do
         before { visit users_path }
         it { should have_title("Log In - #{base_title}") }
       end
-    end 
+    end
   end
 
   describe "Index" do

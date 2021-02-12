@@ -13,5 +13,18 @@ RSpec.describe "Authorization", type: :request do
         specify { expect(response).to redirect_to(login_path)}
       end
     end
+
+    describe "in the Posts controller" do
+      
+      describe "create new post action" do
+        before { post posts_path }
+        specify { expect(response).to redirect_to(login_path) }
+      end
+
+      describe "delete post action" do
+        before { delete post_path(FactoryBot.create(:post)) }
+        specify { expect(response).to redirect_to(login_path) }
+      end
+    end
   end
 end

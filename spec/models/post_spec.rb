@@ -18,4 +18,14 @@ RSpec.describe Post, type: :model do
     before { @post.user_id = nil }
     it { should_not be_valid }
   end
+
+  describe "blank post" do
+    before { @post.content = " " }
+    it { should_not be_valid }
+  end
+
+  describe "too long post" do
+    before { @post.content = "a" * 141 }
+    it { should_not be_valid }
+  end
 end

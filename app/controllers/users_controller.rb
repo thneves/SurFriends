@@ -7,11 +7,12 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    @users = User.paginate(page: params[:page])
   end
 
   def show
     @user = User.find(params[:id])
+    @posts = @user.posts.paginate(page: params[:page])
   end
 
   def create
@@ -46,9 +47,6 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 
-  def logged_in_user
-    redirect_to login_path, notice: "Please Log In." unless logged_in?
-  end
 
   def correct_user
     @user = User.find(params[:id])
