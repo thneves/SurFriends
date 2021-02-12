@@ -4,7 +4,7 @@ RSpec.describe "Authorization", type: :request do
     
   describe "for non-signed-in users to edit" do
   
-    let(:user) { FactoryGirl.create(:user) }
+    let(:user) { FactoryBot.create(:user) }
 
     describe "in the Users controller" do
         

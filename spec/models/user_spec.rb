@@ -17,6 +17,7 @@ RSpec.describe User, type: :model do
   it { should respond_to(:password_confirmation) }
   it { should be_valid }
   it { should respond_to(:authenticate) } #if the given password matches the user's password it should return the user
+  it { should respond_to(:posts) }
 
 # name tests
 
@@ -90,6 +91,31 @@ RSpec.describe User, type: :model do
 
       it { should_not eq user_invalid_pass }
       specify { expect(user_invalid_pass).to be_falsey }
+    end
+  end
+
+  # posts associations
+
+  describe "posts associations" do
+    before { @user.save }
+    let!(:older_post) do
+      FactoryBot.create(:post, user: @user, created_at: 1.day.ago)
+    end
+    let!(:newer_post) do
+      FactoryBot.create(:post, user: @user, created_at: 1.hour.ago)
+    end
+
+    it "should have the right post in the right order" do
+      expect(@user.posts.to_a).to eq [newer_post, older_post]
+    end
+
+    it "should destroy associated posts when user deleted" do
+      posts = @user.posts.to_a
+      @user.destroy
+      expect(posts).not_to be_empty
+      posts.each do |post|
+        expect(Post.where(id: post.id)).to be_empty
+      end
     end
   end
 end

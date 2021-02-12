@@ -7,7 +7,7 @@ RSpec.describe "Users Pages", type: :feature do
   subject { page }
 
   describe "profile page" do
-    let(:user) { FactoryGirl.create(:user) }
+    let(:user) { FactoryBot.create(:user) }
     before { visit user_path(user) }
 
     it { should have_content(user.name) }
@@ -71,7 +71,7 @@ RSpec.describe "Users Pages", type: :feature do
   end
 
   describe "edit" do
-    let(:user) { FactoryGirl.create(:user) }
+    let(:user) { FactoryBot.create(:user) }
     before do
       visit login_path
       fill_in "Email", with: user.email

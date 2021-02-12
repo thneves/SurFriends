@@ -29,7 +29,7 @@ RSpec.describe "Login and Authentication", type: :feature do
     end
 
     describe "valid info" do
-      let(:user) { FactoryGirl.create(:user) }
+      let(:user) { FactoryBot.create(:user) }
       before do
         fill_in "Email", with: user.email.upcase # testing downcasing emails
         fill_in "Password", with: user.password
@@ -47,7 +47,7 @@ RSpec.describe "Login and Authentication", type: :feature do
 
   describe "Authorization" do
     describe "for non-signed-in users" do
-      let(:user) { FactoryGirl.create(:user) }
+      let(:user) { FactoryBot.create(:user) }
 
       describe "in the Users controller" do
         
@@ -65,14 +65,14 @@ RSpec.describe "Login and Authentication", type: :feature do
   end
 
   describe "Index" do
-    let(:user) { FactoryGirl.create(:user) }
+    let(:user) { FactoryBot.create(:user) }
     before do
       visit login_path
       fill_in "Email", with: user.email
       fill_in "Password", with: user.password
       click_button "Log In"
-      FactoryGirl.create(:user, name: "Bob", email: "bob@example.com")
-      FactoryGirl.create(:user, name: "Ben", email: "ben@example.com")
+      FactoryBot.create(:user, name: "Bob", email: "bob@example.com")
+      FactoryBot.create(:user, name: "Ben", email: "ben@example.com")
       visit users_path
     end
 
