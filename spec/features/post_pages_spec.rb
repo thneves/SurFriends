@@ -35,4 +35,15 @@ RSpec.describe 'Post Pages', type: :feature do
         end
       end
     end
+
+    describe "Post destruction" do
+      before { FactoryBot.create(:post, user: user) }
+
+      describe "logged in user" do
+        before { visit root_path }
+        it "should delete a post" do
+          expect { click_link 'delete'}.to change(Post, :count).by(-1)
+        end
+      end
+    end
 end
