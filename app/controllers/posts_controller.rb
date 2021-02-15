@@ -10,6 +10,7 @@ class PostsController < ApplicationController
       flash[:success] = "Post created! I'm Stoked!!"
       redirect_to root_path
     else
+      @feed_items = []
       render 'static_pages/home'
     end
   end

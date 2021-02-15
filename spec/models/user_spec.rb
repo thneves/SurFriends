@@ -18,6 +18,7 @@ RSpec.describe User, type: :model do
   it { should be_valid }
   it { should respond_to(:authenticate) } #if the given password matches the user's password it should return the user
   it { should respond_to(:posts) }
+  it { should respond_to(:feed) }
 
 # name tests
 
@@ -118,4 +119,6 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  
 end
