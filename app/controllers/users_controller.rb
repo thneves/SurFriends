@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: %w[index edit update]
+  before_action :logged_in_user, only: %w[index edit update following followers]
   before_action :correct_user, only: %w[:edit update]
 
   def new
@@ -39,6 +39,20 @@ class UsersController < ApplicationController
       else
         render 'edit'
       end
+    end
+
+    def following
+      @title = "Following"
+      @user = User.find(params[:id])
+      @users = @user.following.paginate(page: params[:page])
+      render 'show_follow'
+    end
+
+    def followers
+      @title = "Followers"
+      @user = User.find(params[:id])
+      @users = @user.followers.paginate(page: params[:page])
+      render 'show_follow'
     end
 
   private

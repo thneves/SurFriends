@@ -119,7 +119,5 @@ RSpec.describe User, type: :model do
         expect(Post.where(id: post.id)).to be_empty
       end
     end
-  end
-
-  
+  end  
 end

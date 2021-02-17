@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
   get 'sessions/new'
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
   resources :sessions, only: %w[new create destroy]
   resources :posts, only: %w[create destroy]
+  resources :relationships, only: %w[create destroy]
 
   root 'static_pages#home'
   get 'about' => "static_pages#about"
