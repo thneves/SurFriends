@@ -32,6 +32,7 @@ gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 gem 'bcrypt', '~> 3.1', '>= 3.1.16'
 gem 'will_paginate', '~> 3.1'
 gem 'shoulda-matchers', '~> 3.1', '>= 3.1.1'
+gem 'mini_magick', '~> 4.5', '>= 4.5.1'
 
 
 # Use ActiveStorage variant

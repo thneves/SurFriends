@@ -4,8 +4,13 @@
 
 <%= will_paginate @users %>
 
-<ul class="users">
-  <%= render @users %>
+<ul>
+  <% @users.each do |user| %>
+    <div class="surfers_list">
+      <%= link_to image_tag(user.avatar.variant(resize:"60x60")), user %>  
+      <%= link_to user.name, user %>
+    </div>
+  <% end %>
 </ul>
 
 <%= will_paginate %>

@@ -1,28 +1,39 @@
 <%= provide(:title, "Home") %>
 
 <% if logged_in? %>
-  <div class="row">
-    <aside>
-      <section class="col-md-4">
+  <div class="row mt-5 d-flex">
+    <aside class="col-md-3 col-lg-3">
+      <section>
         <%= render 'shared/user_info' %>
       </section>
       <section>
         <%= render 'shared/stats' %>
-      </section>
-      <section class="col-md-5">
-        <%= render 'shared/post_form' %>
-      </section>
+      </section>  
     </aside>
-    <div>
-      <h3>Swell Feed</h3>
-      <%= render 'shared/feed' %>
-    </div>
+   
+      
+    <section class="col-md-5">
+      <div class="post-content-feed">
+        <h3 class="text-center">Post Something About Surf</h3>
+        <%= render 'shared/post_form' %>
+      </div>
+      
+      <h4 class="text-center">Latest posts</h4>
+       <%= render 'shared/feed' %>
+      </section>
+       <div class="col-2 side-right">
+        <%= render 'shared/not_follow'%>
+      </div>
+  
   </div>
+ 
 <% else %>
-  <div class="center hero-unit">
-    <h1> Welcome to Surfriends </h1>
-    <h2>The Social Media For Surfers</h2>
-      <%= link_to 'Register Now!', register_path, class:"btn btn-lg btn-primary" %> 
+  <div class="center home-background">
+    <div class="intro-text">
+      <h1> Welcome to SurFriends </h1>
+      <h2>Check your friend's swell reports</h2>
+      <%= link_to 'Register Now!', register_path, class:"btn btn-lg btn-register" %> 
+    </div>  
   </div>
 <% end %>
 

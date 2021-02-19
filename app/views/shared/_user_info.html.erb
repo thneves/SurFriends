@@ -1,10 +1,12 @@
-<%= link_to gravatar_for(current_user, size: 52), current_user %>
-<h1>
-  <%= current_user.name %>
-</h1>
-<span>
-  <%= link_to "view my profile", current_user %>
-</span>
-<span>
-  <%= pluralize(current_user.posts.count, "post") %>
-</span>
+<div class="text-center">
+  <%=  image_tag(current_user.avatar.variant(resize: "180x180")) %>
+  <h1 class="aside-name text-center">
+    <%= current_user.name %>
+  </h1>
+  <span class="text-center">
+    <%= link_to "view my profile", current_user, class:"aside-link" %>
+  </span>
+  <span class="text-center aside-count">
+    <%= pluralize(current_user.posts.count, "post") %>
+  </span>
+</div>
