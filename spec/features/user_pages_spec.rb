@@ -83,7 +83,6 @@ RSpec.describe "Users Pages", type: :feature do
     describe "page" do
       it { should have_content("Update Profile") }
       it { should have_title("Edit Profile") }
-      it { should have_link("Update", href: 'http://gravatar.com/emails') }
     end
 
     describe "edit with invalid info" do

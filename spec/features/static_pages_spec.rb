@@ -8,7 +8,7 @@ RSpec.describe "Static Pages", type: :feature do
     
     it "should have the content 'Surfriends'" do
       visit root_path
-      expect(page).to have_content('Surfriends')
+      expect(page).to have_content('Contact')
     end
 
     it "should have the title 'Home'" do

@@ -1,6 +1,8 @@
 <li class="post-format">
   <div class="post-user-feed">
-    <%=  image_tag(post.user.avatar.variant(resize: "45x45")) %>
+    <% if post.user.avatar.attached? %>
+      <%=  image_tag(post.user.avatar.variant(resize: "45x45")) %>
+    <% end %>
     <span><%= post.user.name %></span>
   </div>
   

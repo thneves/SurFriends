@@ -82,7 +82,7 @@ RSpec.describe "Login and Authentication", type: :feature do
 
     it "should list each user" do
       User.all.each do |user|
-        expect(page).to have_selector('li', text: user.name)
+        expect(page).to have_selector('a', text: user.name)
       end
     end
   end

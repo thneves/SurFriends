@@ -1,5 +1,7 @@
 <div class="text-center">
-  <%=  image_tag(current_user.avatar.variant(resize: "180x180")) %>
+  <% if current_user.avatar.attached? %>
+    <%=  image_tag(current_user.avatar.variant(resize: "180x180")) %>
+  <% end %>
   <h1 class="aside-name text-center">
     <%= current_user.name %>
   </h1>
