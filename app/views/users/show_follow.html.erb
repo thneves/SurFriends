@@ -2,7 +2,9 @@
 <div class="row">
   <aside class="col-md-4 show-follow">
     <section class="user_info">
-      <%= avatar_for @user %>
+      <% if @user.avatar.attached? %>
+        <%= image_tag(@user.avatar.variant(resize: "220x220")) %>
+      <% end %>
       <h1 class="aside-name"><%= @user.name %></h1>
       <span class="aside-link text-center"><%= link_to "view my profile", @user %></span>
       <span class="text-center aside-count">Swell Posts: <%= @user.posts.count %></span>
