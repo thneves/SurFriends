@@ -1,7 +1,32 @@
 <% provide(:title, @user.name) %>
 
 <div class="row">
-  <aside class="col-md-4">
+  <aside class="col-md-3 col-lg-3">
+    <section>
+      <%= render 'shared/user_info' %>
+    </section>
+    <section>
+      <%= render 'shared/current_user_stats'%>
+    </section>
+    <section class="profile-links-sec">
+      <span class="profile-links"><%= link_to "HOME", root_path, class: 'profile-links' %></span>
+      <span class="profile-links"><%= link_to 'SURFERS', users_path, class: 'profile-links' %></span>
+      <span class="profile-links"><%= link_to "MY PROFILE", current_user, class: 'profile-links' %></span>
+    </section>
+  </aside>
+
+  <div class="col-md-5">
+    <%= render 'follow_form' if logged_in? %>
+    <% if @user.posts.any? %>
+      <h3 class="text-center">Posts (<%= @user.posts.count %>)</h3>
+      <ol class="posts">
+       <%= render @posts %>
+      </ol>
+      <%= will_paginate @posts %>
+    <% end %>
+  </div>
+
+  <div class="col-md-4 user-info-div">
   <section class="user_info">
     <h1>
       <% if @user.avatar.attached? %>
@@ -12,20 +37,36 @@
       <%= @user.name %>
     </h1>
   </section>
-  <section class="stats">
-    <%= render 'shared/stats'%>
+  <section>
+    <div class="stats">
+      <a href="<%= following_user_path(@user) %>">
+    <strong id="following">
+      <%= @user.following.count %>
+    </strong>
+    following
+  </a>
+  <a href="<%= followers_user_path(@user) %>">
+    <strong id="followers">
+      <%= @user.followers.count %>
+    </strong>
+    followers
+  </a>
+</div>
+      <div class="text-center posts-number-user">
+        <%= pluralize(@user.posts.count, "post") %>
+      </div>
   </section>
-  </aside>
-
-  <div class="col-md-8">
-    <%= render 'follow_form' if logged_in? %>
-    <% if @user.posts.any? %>
-      <h3 class="text-center">Posts (<%= @user.posts.count %>)</h3>
-      <ol class="posts">
-       <%= render @posts %>
-      </ol>
-      <%= will_paginate @posts %>
+  <section class="who-follow-right">
+  <h4 class='text-dark pb-3 pt-3 h4-who-follow text-center'>Followed By:</h4>
+  <ul class="not-follow-list text-center">
+    <% @user.followers.each do |user| %>
+      <div class="users-not-following">
+        <%= link_to image_tag(user.avatar.variant(resize:"60x60")), user %>
+        <%= link_to user.name, user %>
+      </div>
     <% end %>
+  </ul>
+  </section>
   </div>
 </div>
 

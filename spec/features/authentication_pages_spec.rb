@@ -22,10 +22,6 @@ RSpec.describe "Login and Authentication", type: :feature do
       it { should have_title("Log In - #{base_title}") }
       it { should have_selector('div.alert.alert-error') }
 
-      describe "after changing page" do
-        before { click_link "Home" }
-        it {should_not have_selector('div.alert.alert-error') }
-      end
     end
 
     describe "valid info" do
@@ -36,10 +32,10 @@ RSpec.describe "Login and Authentication", type: :feature do
         click_button "Log In"
       end
 
-      it { should have_title(user.name) }
-      it { should have_link('Profile'), href: user_path(user) }
+      it { should have_title('Home - Surfriends') }
+      it { should have_link('MY PROFILE'), href: user_path(user) }
       it { should have_link('Log Out'), href: logout_path }
-      it { should have_link('Surfers'), href: users_path }
+      it { should have_link('SURFERS'), href: users_path }
       it { should have_link('Settings', href: edit_user_path(user))}
       it { should_not have_link('Log In'), href: login_path }
     end

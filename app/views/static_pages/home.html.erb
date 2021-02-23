@@ -1,18 +1,23 @@
 <%= provide(:title, "Home") %>
 
 <% if logged_in? %>
-  <div class="row mt-5 d-flex">
+  <div class="row">
     <aside class="col-md-3 col-lg-3">
       <section>
         <%= render 'shared/user_info' %>
       </section>
       <section>
-        <%= render 'shared/stats' %>
-      </section>  
+        <%= render 'shared/current_user_stats' %>
+      </section>
+      <section class="profile-links-sec">
+        <span class="profile-links"><%= link_to "HOME", root_path, class: 'profile-links' %></span>
+        <span class="profile-links"><%= link_to 'SURFERS', users_path, class: 'profile-links' %></span>
+        <span class="profile-links"><%= link_to "MY PROFILE", current_user, class: 'profile-links' %></span>
+      </section>
     </aside>
    
       
-    <section class="col-md-5">
+    <section class="col-md-5 col-lg-5">
       <div class="post-content-feed">
         <h3 class="text-center">Post Something About Surf</h3>
         <%= render 'shared/post_form' %>
@@ -21,7 +26,7 @@
       <h4 class="text-center">Latest posts</h4>
        <%= render 'shared/feed' %>
       </section>
-       <div class="col-2 side-right">
+       <div class="col-md-2 col-lg-3 side-right">
         <%= render 'shared/not_follow'%>
       </div>
   

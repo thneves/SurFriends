@@ -79,6 +79,22 @@ textarea {
   color: white;
 }
 
+// PROFILE LEFT SIDE
+
+
+.profile-links {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+  padding: 25px 0;
+   a {
+    color: #516679;
+  } &:hover a {
+    text-decoration: none;
+    color: #52a6e6;
+  }
+}
+
 aside {
   background-color: #213246;
 }
@@ -141,30 +157,54 @@ footer {
 // sidebar
 
 .user_info {
+  padding: 20px;
+  border: 1px solid #52a6e6;
   h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-
+    font-size: 25px;
+    color: #52a6e6;
+    margin: 15px 0;
   }
+}
+
+.posts-number-user {
+  border: 1px solid gray;
+  padding: 20px;
+  font-weight: bold;
+  color: #52a6e6;
 }
 
 .side-right {
   float: right;
-  margin-top: 30px;
+  margin-top: 10px;
   margin-right: 20px;
   padding: 20px;
   border: 2px solid #52a6e6;
   color: #52a6e6;
   background-color: white;
   border-radius: 2%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.h4-who-follow {
+  border-bottom: 2px solid #52a6e6;
+  padding-bottom: 20px;
+}
+.not-follow-list {
+  padding: 0;
 }
 
 .users-not-following {
   display: flex;
   flex-direction: column;
-  margin-bottom: 8px;
+  margin: 20px 0;
+  padding-left: 0;
+  padding-bottom: 12px;
   border-bottom: 1px solid #52a6e6;
 }
 
@@ -195,14 +235,6 @@ aside {
   }
 }
 
-.gravatar {
-  float: left;
-  margin-right: 10px;
-}
-
-.gravatar_edit {
-  margin-top: 15px;
-}
 
 // FORMS
 
@@ -210,7 +242,8 @@ input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
   margin-bottom: 15px;
-  @include box_sizing
+  border-radius: 2%;
+  @include box_sizing;
 }
 
 #follow_form {
@@ -329,14 +362,16 @@ aside {
   justify-content: center;
   overflow: auto;
   margin-top: 0;
-  padding: 0;
+  padding: 10px 0;
+  border: 1px solid darkgray;
   a {
-    padding: 0 10px;
+    padding: 0 22px;
     border-left: 1px solid darkgray;
-    color: gray;
+    color: #516679;
     &:first-child {
       padding-left: 0;
       border: 0;
+      padding-right: 22px;
     }
     &:hover {
       text-decoration: none;
@@ -358,4 +393,12 @@ aside {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.who-follow-right {
+  border: 1px solid gray;
+}
+
+.user-info-div {
+  border: 2px solid #52a6e6;
 }
