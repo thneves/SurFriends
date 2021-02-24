@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
-    @users = User.all
+    @users = User.all.with_attached_avatar
     if @post.save
       flash[:success] = "Post created! I'm Stoked!!"
       redirect_to root_path

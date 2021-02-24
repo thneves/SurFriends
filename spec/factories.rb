@@ -4,11 +4,6 @@ FactoryBot.define do
     email { "contato@flores.com" }
     password { "foobar" }
     password_confirmation { "foobar" }
-
-    trait :with_avatar do
-      avatar { Rack::Test::UploadedFile.new('spec/support/assets/test-image.png', 'image/png') }
-    end
-
   end
 
   # factory :user2 do

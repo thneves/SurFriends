@@ -61,7 +61,9 @@
   <ul class="not-follow-list text-center">
     <% @user.followers.each do |user| %>
       <div class="users-not-following">
-        <%= link_to image_tag(user.avatar.variant(resize:"60x60")), user %>
+        <% if user.avatar.attached? %>
+          <%= link_to image_tag(user.avatar.variant(resize:"60x60")), user %>
+        <% end %>
         <%= link_to user.name, user %>
       </div>
     <% end %>

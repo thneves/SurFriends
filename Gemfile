@@ -33,6 +33,10 @@ gem 'bcrypt', '~> 3.1', '>= 3.1.16'
 gem 'will_paginate', '~> 3.1'
 gem 'shoulda-matchers', '~> 3.1', '>= 3.1.1'
 gem 'mini_magick', '~> 4.5', '>= 4.5.1'
+gem 'cloudinary'
+gem 'carrierwave'
+
+
 
 
 # Use ActiveStorage variant
@@ -47,7 +51,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'rspec-rails'
+  gem 'rspec-rails'  
 end
 
 group :development do

@@ -7,13 +7,13 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.paginate(page: params[:page])
+    @users = User.paginate(page: params[:page]).with_attached_avatar
   end
 
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.paginate(page: params[:page])
-    @users = User.all.order(created_at: :desc)
+    @users = User.paginate(page: params[:page]).with_attached_avatar
   end
 
   def create
@@ -45,14 +45,14 @@ class UsersController < ApplicationController
     def following
       @title = "Following"
       @user = User.find(params[:id])
-      @users = @user.following.paginate(page: params[:page])
+      @users = @user.following.paginate(page: params[:page]).with_attached_avatar
       render 'show_follow'
     end
 
     def followers
       @title = "Followers"
       @user = User.find(params[:id])
-      @users = @user.followers.paginate(page: params[:page])
+      @users = @user.followers.paginate(page: params[:page]).with_attached_avatar
       render 'show_follow'
     end
 
