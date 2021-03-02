@@ -2,9 +2,9 @@
 <div class="row">
   <aside class="col-md-4 show-follow">
     <section class="user_info">
-      <% if @user.avatar.attached? %>
-        <%= image_tag(@user.avatar.variant(resize: "220x220")) %>
-      <% end %>
+    <% if @user.avatar.attached? %>
+     <%=  image_tag(url_for(@user.avatar.variant(resize: "200x200"))) %>
+    <% end %> 
       <h1 class="aside-name"><%= @user.name %></h1>
       <span class="aside-link text-center"><%= link_to "view my profile", @user %></span>
       <span class="text-center aside-count">Swell Posts: <%= @user.posts.count %></span>
@@ -17,7 +17,7 @@
       <% if @users.any? %>
         <div class="user_avatars">
           <% @users.each do |user| %>
-            <%= link_to image_tag(user.avatar.variant(resize: "60x60")), user %>
+            <%=  image_tag(url_for(user.avatar.variant(resize: "50x50"))) %>
           <% end %>
         </div>
       <% end %>

@@ -5,7 +5,7 @@
       <% if user.followers %>
         <% if @user != user %>
           <div class="users-not-following">
-            <%= link_to image_tag(user.avatar.variant(resize:"60x60")), user %>
+            <%=  image_tag(url_for(user.avatar.variant(resize: "50x50"))) %>
             <%= link_to user.name, user %>
           </div>
         <% end %>
