@@ -46,8 +46,9 @@ header {
   background-image: url('https://res.cloudinary.com/de3vnm3hk/image/upload/v1614190445/welcome2_mjjaoh.jpg');
   background-position: center;
   background-size: cover;
-  height: 45vh;
+  height: 50vh;
   margin-top: 30px;
+  width: 100%;
 }
 
 .navbar {
@@ -88,6 +89,15 @@ header {
 .btn-register {
   background-color: #52a6e6;
   color: white;
+  margin-right: 20px;
+  font-weight: bold;
+}
+
+.btn-login {
+  background-color: rgb(74, 235, 159);
+  margin-left: 20px;
+  color: white;
+  font-weight: bold;
 }
 
 @mixin box_sizing {

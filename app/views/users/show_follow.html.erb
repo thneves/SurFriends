@@ -1,11 +1,9 @@
 <% provide(:title, @title) %>
 <div class="row">
   <div class="column">
-    <aside class="col-md-3 show-follow">
+      <aside class="col-md-3 show-follow">
     <section class="user_info mt-5">
-    <% if @user.avatar.attached? %>
-     <%=  image_tag(url_for(@user.avatar.variant(resize: "200x200"))) %>
-    <% end %> 
+    <%= avatar_for_user(@user) %>
       <h1 class="aside-name"><%= @user.name %></h1>
       <span class="aside-link text-center"><%= link_to "view my profile", @user %></span>
       <span class="text-center aside-count">Swell Posts: <%= @user.posts.count %></span>

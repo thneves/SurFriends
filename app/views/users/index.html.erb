@@ -10,9 +10,7 @@
 <ul>
   <% @users.each do |user| %>
     <div class="surfers_list">
-      <% if user.avatar.attached? %>
-        <%= image_tag(url_for(user.avatar.variant(resize: "100x100"))) %>
-      <% end %>
+    <%= avatar_for_user_100(user)%>
       <%= link_to user.name, user %>
     </div>
   <% end %>

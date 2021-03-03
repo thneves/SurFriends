@@ -10,7 +10,9 @@
 .post-user-feed {
   margin-bottom: 7px;
   font-weight: bold;
-  color: #213246;
+  a {
+    color: #213246;
+  }
 }
 
 .post-format {

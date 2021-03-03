@@ -40,19 +40,15 @@
   </div>
  
 <% else %>
+
   <div class="center home-background">
+    
     <div class="intro-text">
       <h1> Welcome to SurFriends </h1>
       <h2>Check your friend's swell reports</h2>
       <%= link_to 'Register Now!', register_path, class:"btn btn-lg btn-register" %> 
+      <span> OR </span>
+      <%= link_to 'Log In', login_path, class:"btn btn-lg btn-login" %>
     </div>  
   </div>
 <% end %>
-
-
-
-
-
-
-
-<%# <%= link_to image_tag("/home/thneves/Projects/Microverse/surfriends/app/assets/images/logo", alt: "Rails logo") %>
