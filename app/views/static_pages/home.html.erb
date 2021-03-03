@@ -3,11 +3,11 @@
 <% if logged_in? %>
   <div class="row">
   <div class="column">
-    <aside class="col-md-3 col-lg-3">
-      <section>
+    <aside class="col-sm-3 col-md-3 col-lg-3">
+      <section class="top-section-user">
         <%= render 'shared/user_info' %>
       </section>
-      <section>
+      <section class="top-section-user">
         <%= render 'shared/current_user_stats' %>
       </section>
       <section class="profile-links-sec">
@@ -20,7 +20,7 @@
   </div>
     
    <div class="row">
-      <section class="col-lg-6 feed-class">
+      <section class="col-sm-2 col-md-6 col-lg-6 feed-class">
         <h4>POSTS</h4>
         <div class="post-content-feed">
           <h3>Post Something About Surf</h3>
@@ -33,7 +33,7 @@
           <%= render 'shared/feed' %>
         </div>
     </section>
-       <div class="side-right col-lg-2">
+       <div class="side-right col-sm-2 col-lg-2 col-md-2">
         <%= render 'shared/not_follow'%>
       </div>
    </div>

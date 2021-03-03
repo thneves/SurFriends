@@ -2,57 +2,103 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.stats-show-follow {
-  display: flex;
-  flex-direction: column;
-}
+// USER PROFILE SIDE
 
-.stats-follow {
-  margin-bottom: 30px;
-}
-
-.stats {
-  display: flex;
-  justify-content: center;
-  overflow: auto;
-  margin-top: 0;
-  padding: 10px 0;
-  border: 1px solid darkgray;
-  a {
-    padding: 0 22px;
-    border-left: 1px solid darkgray;
-    color: #516679;
+aside {
+  background-color: #213246;
+  z-index: 1;
+  height: 100vh;
+  section {
+    padding: 0;
+    margin: 0;
     &:first-child {
-      padding-left: 0;
       border: 0;
-      padding-right: 22px;
+      padding-top: 0;
     }
-    &:hover {
-      text-decoration: none;
-      color: #52a6e6;
+    span {
+      display: block;
+      line-height: 1;
     }
-  }
-  strong {
-    display: block;
+    h1 {
+      font-size: 1.4em;
+      text-align: left;
+      margin-bottom: 3px;
+      margin-top: 0px;
+    }
   }
 }
 
-.surfers_list {
-  margin-bottom: 10px;
-  padding-bottom: 6px;
-  border-bottom: 1px solid darkgray;
+.aside-name, .aside-link, .aside-count {
+  color: #516379;
+  margin: 8px 0;
 }
 
-.show-follow {
+.top-section-user {
+  background-color: #1b2a3d;
+}
+
+.profile-links-sec {
+  background-color: #213246;
+}
+
+
+.profile-links {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+  padding: 15px 0;
+   a {
+    color: #516679;
+  } &:hover a {
+    text-decoration: none;
+    color: #52a6e6;
+  }
+}
+
+.user-info-top {
+  padding: 20px;
+  margin: 0;
+  font-variant: small-caps;
+}
+
+// HOME - SIDE BAR WHO TO FOLLOW END
+
+.side-right {
+  padding: 0 20px 0 20px;
+  margin: 0;
+  border-left: 2px solid rgb(224, 224, 224);
+  background-color: #f5f6f8;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: center;
+  h4 {
+    color:rgb(204, 202, 202);
+    font-weight: bold;
+    border-bottom:1px solid rgb(224, 224, 224);
+    padding-bottom: 20px;
+  }
 }
 
-.who-follow-right {
-  border: 1px solid gray;
+.ul-users {
+  padding: 0;
 }
 
-.user-info-div {
-  border: 2px solid #52a6e6;
+.users-not-following {
+  img {
+    border-radius: 50%;
+    margin-right: 8px;
+  }
+  width: 200px;
+  margin-bottom: 20px;
+  list-style-type: none;
+  text-align: left;
+  padding-left: 0;
+  a {
+    color: #213246;
+    font-weight: bold;
+    &:hover {
+      color: #52a6e6;
+      text-decoration: none;
+    }
+  } 
 }

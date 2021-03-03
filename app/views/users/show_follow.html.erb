@@ -1,7 +1,8 @@
 <% provide(:title, @title) %>
 <div class="row">
-  <aside class="col-md-4 show-follow">
-    <section class="user_info">
+  <div class="column">
+    <aside class="col-md-3 show-follow">
+    <section class="user_info mt-5">
     <% if @user.avatar.attached? %>
      <%=  image_tag(url_for(@user.avatar.variant(resize: "200x200"))) %>
     <% end %> 
@@ -17,12 +18,15 @@
       <% if @users.any? %>
         <div class="user_avatars">
           <% @users.each do |user| %>
-            <%=  image_tag(url_for(user.avatar.variant(resize: "50x50"))) %>
+            <%=  image_tag(url_for(user.avatar.variant(resize: "60x60", crop:'50x50+0+0'))) %>
           <% end %>
         </div>
       <% end %>
     </section>
   </aside>
+  <%= render 'layouts/header' %>
+  </div>
+
   <div class="col-md-8">
     <h3 class="text-center"><%= @title %></h3>
     <% if @users.any? %>

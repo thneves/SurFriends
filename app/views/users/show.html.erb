@@ -1,11 +1,12 @@
 <% provide(:title, @user.name) %>
 
 <div class="row">
+<div class="column">
   <aside class="col-md-3 col-lg-3">
-    <section>
+    <section class="top-section-user">
       <%= render 'shared/user_info' %>
     </section>
-    <section>
+    <section  class="top-section-user">
       <%= render 'shared/current_user_stats'%>
     </section>
     <section class="profile-links-sec">
@@ -14,24 +15,30 @@
       <span class="profile-links"><%= link_to "MY PROFILE", current_user, class: 'profile-links' %></span>
     </section>
   </aside>
+  <%= render 'layouts/header' %>
+</div>
 
-  <div class="col-md-5">
-    <%= render 'follow_form' if logged_in? %>
-     <img src="https://source.unsplash.com/featured/?ocean,water" class="cover-image" width="600" height="300">
-    <% if @user.posts.any? %>
-      <h3 class="text-center">Posts (<%= @user.posts.count %>)</h3>
+  
+  <div class="col-md-6">
+    
+     <%# <img src="https://source.unsplash.com/featured/?ocean,water" class="cover-image" width="300" height="250"> %>
+    <div class="user-show-posts">
+       <% if @user.posts.any? %>
+      <h4>ALL POSTS (<%= @user.posts.count %>)</h4>
       <ol class="posts">
        <%= render @posts %>
       </ol>
       <%= will_paginate @posts %>
     <% end %>
+    </div>
   </div>
 
-  <div class="col-md-4 user-info-div">
+  <div class="col-md-3 user-info-div">
+  <%= render 'follow_form' if logged_in? %>
   <section class="user_info">
     <h1>
       <% if @user.avatar.attached? %>
-        <image src="<%=(url_for(@user.avatar.variant(resize: "200x200")))%>">
+        <image src="<%=(url_for(@user.avatar.variant(resize: "180x180", crop: '180x180+0+0')))%>">
       <% else %>
         <%= gravatar_for @user %>
       <% end %>
@@ -39,31 +46,35 @@
     </h1>
   </section>
   <section>
-    <div class="stats">
+    <div class="stats-right">
       <a href="<%= following_user_path(@user) %>">
-    <strong id="following">
-      <%= @user.following.count %>
-    </strong>
-    following
-  </a>
-  <a href="<%= followers_user_path(@user) %>">
-    <strong id="followers">
-      <%= @user.followers.count %>
-    </strong>
-    followers
-  </a>
-</div>
-      <div class="text-center posts-number-user">
-        <%= pluralize(@user.posts.count, "post") %>
-      </div>
+       <strong id="following">
+        <%= @user.following.count %>
+      </strong>
+      Following
+      </a>
+      <a href="<%= followers_user_path(@user) %>">
+        <strong id="followers">
+          <%= @user.followers.count %>
+        </strong>
+        Followers
+      </a>
+      <a href="#">
+        <strong>
+        <%= @user.posts.count %>
+        </strong>
+        Posts
+      </a>
+    </div>
+      
   </section>
   <section class="who-follow-right">
-  <h4 class='text-dark pb-3 pt-3 h4-who-follow text-center'>Followed By:</h4>
-  <ul class="not-follow-list text-center">
+  <h4>FOLLOWED BY:</h4>
+  <ul class="ul-users">
     <% @user.followers.each do |user| %>
       <div class="users-not-following">
         <% if user.avatar.attached? %>
-          <%= link_to image_tag(user.avatar.variant(resize:"60x60")), user %>
+          <%=  link_to image_tag(url_for(user.avatar.variant(resize: "70x70^", crop: '70x70+0+0'))), user %>
         <% end %>
         <%= link_to user.name, user %>
       </div>
