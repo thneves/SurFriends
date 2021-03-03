@@ -2,6 +2,7 @@
 
 <% if logged_in? %>
   <div class="row">
+  <div class="column">
     <aside class="col-md-3 col-lg-3">
       <section>
         <%= render 'shared/user_info' %>
@@ -15,21 +16,27 @@
         <span class="profile-links"><%= link_to "MY PROFILE", current_user, class: 'profile-links' %></span>
       </section>
     </aside>
-   
-    <section class="col-md-5 col-lg-5">
-    <img src="https://source.unsplash.com/featured/?ocean,water" class="cover-image" width="600" height="300">
-      <div class="post-content-feed">
-        <h3 class="text-center">Post Something About Surf</h3>
-        <%= render 'shared/post_form' %>
-      </div>
-      
-      <h4 class="text-center">Latest posts</h4>
-       <%= render 'shared/feed' %>
-      </section>
-       <div class="col-md-2 col-lg-3 side-right">
+    <%= render 'layouts/header' %>
+  </div>
+    
+   <div class="row">
+      <section class="col-lg-6 feed-class">
+        <h4>POSTS</h4>
+        <div class="post-content-feed">
+          <h3>Post Something About Surf</h3>
+          <div class="">
+            <%= render 'shared/post_form' %>
+          </div>
+        </div>
+        <div class="feed-items col-lg-6">
+          <h4>LATEST POSTS</h4>
+          <%= render 'shared/feed' %>
+        </div>
+    </section>
+       <div class="side-right col-lg-2">
         <%= render 'shared/not_follow'%>
       </div>
-  
+   </div>
   </div>
  
 <% else %>

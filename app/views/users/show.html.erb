@@ -17,6 +17,7 @@
 
   <div class="col-md-5">
     <%= render 'follow_form' if logged_in? %>
+     <img src="https://source.unsplash.com/featured/?ocean,water" class="cover-image" width="600" height="300">
     <% if @user.posts.any? %>
       <h3 class="text-center">Posts (<%= @user.posts.count %>)</h3>
       <ol class="posts">

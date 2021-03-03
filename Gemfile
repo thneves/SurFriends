@@ -28,7 +28,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'hirb', '~> 0.7.3'
-gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
+gem 'bootstrap'
 gem 'bcrypt', '~> 3.1', '>= 3.1.16'
 gem 'will_paginate', '~> 3.1'
 gem 'shoulda-matchers', '~> 3.1', '>= 3.1.1'
