@@ -31,6 +31,14 @@ module UsersHelper
     end
   end
 
+  def avatar_for_user_follow(user)
+    if user.avatar.attached?
+      image_tag(url_for(user.avatar.variant(resize: '70x70', crop: '70x70+0+0')))
+    else
+      gravatar_for(user)
+    end
+  end
+
   def avatar_for_post(user)
     if user.avatar.attached?
       image_tag(url_for(user.avatar.variant(resize: '45x45', crop: '45x45+0+0')))
