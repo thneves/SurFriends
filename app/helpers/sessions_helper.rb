@@ -1,5 +1,4 @@
 module SessionsHelper
-
   def log_in(user)
     session[:user_id] = user.id
   end
@@ -13,6 +12,6 @@ module SessionsHelper
   end
 
   def logged_in_user
-    redirect_to login_path, notice: "Please Log In." unless logged_in?
+    redirect_to login_path, notice: 'Please Log In.' unless logged_in?
   end
 end

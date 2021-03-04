@@ -1,9 +1,9 @@
 FactoryBot.define do
   factory :user do
-    name  { "Jeremy Flores" }
-    email { "contato@flores.com" }
-    password { "foobar" }
-    password_confirmation { "foobar" }
+    name { 'Jeremy Flores' }
+    email { 'contato@flores.com' }
+    password { 'foobar' }
+    password_confirmation { 'foobar' }
   end
 
   # factory :user2 do
@@ -14,7 +14,7 @@ FactoryBot.define do
   # end
 
   factory :post do
-    content { "Oh mama! I wanna go Surfing!" }
+    content { 'Oh mama! I wanna go Surfing!' }
     user
   end
 end
