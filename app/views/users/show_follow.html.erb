@@ -1,7 +1,6 @@
 <% provide(:title, @title) %>
 <div class="row">
-  <div class="column">
-      <aside class="col-md-3 show-follow">
+  <aside class="col-md-3 show-follow">
     <section class="user_info mt-5">
     <%= avatar_for_user(@user) %>
       <h1 class="aside-name"><%= @user.name %></h1>
@@ -22,10 +21,12 @@
       <% end %>
     </section>
   </aside>
-  <%= render 'layouts/header' %>
-  </div>
 
-  <div class="col-md-8">
+  <div class="column col-lg-9 p-0">
+  <%= render 'layouts/header' %>
+
+
+  <div class="col-12">
     <h3 class="text-center"><%= @title %></h3>
     <% if @users.any? %>
       <ul class="users follow">

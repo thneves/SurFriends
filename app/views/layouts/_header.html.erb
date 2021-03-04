@@ -1,18 +1,15 @@
 
-<header class="navbar navbar-inverse">
-  <div class="navbar-inner">
-    <div class="container">
-     <%= link_to image_tag('logo2.png', width: 50, height: 50), root_path, id: "logo" %>
-    <nav>
+<header class="navbar col-12">    
+    <%= link_to image_tag('logo2.png', width: 50, height: 50), root_path, id: "logo" %>
+    <nav class="navbar">
       <ul  class="nav nav-white navbar-nav navbar-right">
         <% if logged_in? %>
-          <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-          <li><%= link_to "Log Out", logout_path, method: "delete" %></li>
-        <% else %>
-            <li><%= link_to "Log in", login_path %></li>
+          <div class="li-div">
+            <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+            <li><%= link_to "Log Out", logout_path, method: "delete" %></li>
+          </div>
+          
         <% end %>
       </ul>
     </nav>
-  </div>
-</div>
 </header>

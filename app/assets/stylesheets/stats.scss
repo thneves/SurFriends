@@ -39,12 +39,12 @@
 .stats-right {
   display: flex;
   justify-content: center;
-  overflow: auto;
   margin-top: 0;
   padding: 10px 0;
   border-top: 1px solid darkgray;
   border-bottom: 1px solid darkgray;
   a {
+    font-size: 12px;
     padding: 0 15px;
     border-left: 1px solid darkgray;
     color: #213246;

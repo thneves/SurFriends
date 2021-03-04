@@ -1,8 +1,8 @@
 <%= provide(:title, "Register") %>
-
+<%= render 'layouts/header' %>
 <h1 class="text-center">Register</h1>
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="col-md-6 col-md-offset-3 mx-auto">
     <%= form_for(@user) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 
