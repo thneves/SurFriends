@@ -12,7 +12,7 @@ module UsersHelper
     if user.avatar.attached?
       image_tag(url_for(current_user.avatar.variant(resize: "180x180", crop:"180x180+0+0")))
     else
-      gravatar_for
+      gravatar_for(user)
     end
   end
 
@@ -20,7 +20,7 @@ module UsersHelper
     if user.avatar.attached?
       image_tag(url_for(user.avatar.variant(resize: "180x180", crop:"180x180+0+0")))
     else
-      gravatar_for
+      gravatar_for(user)
     end
   end
 
@@ -28,7 +28,7 @@ module UsersHelper
     if user.avatar.attached?
       image_tag(url_for(user.avatar.variant(resize: "90x90", crop:"90x90+0+0")))
     else
-      gravatar_for
+      gravatar_for(user)
     end
   end
   
@@ -36,7 +36,7 @@ module UsersHelper
     if user.avatar.attached?
       image_tag(url_for(user.avatar.variant(resize: '45x45', crop:'45x45+0+0')))
     else
-      gravatar_for
+      gravatar_for(user)
     end
   end
 end
