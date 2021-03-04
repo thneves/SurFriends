@@ -7,13 +7,13 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.paginate(page: params[:page]).includes(avatar_attachment: :blob )
+    @users = User.paginate(page: params[:page]).includes(avatar_attachment: :blob)
   end
 
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.paginate(page: params[:page])
-    @users = User.paginate(page: params[:page]).includes(avatar_attachment: :blob )
+    @users = User.paginate(page: params[:page]).includes(avatar_attachment: :blob)
   end
 
   def create
@@ -44,14 +44,14 @@ class UsersController < ApplicationController
   def following
     @title = 'Following'
     @user = User.find(params[:id])
-    @users = @user..includes(avatar_attachment: :blob ).following.paginate(page: params[:page])
+    @users = @user..includes(avatar_attachment: :blob).following.paginate(page: params[:page])
     render 'show_follow'
   end
 
   def followers
     @title = 'Followers'
     @user = User.find(params[:id])
-    @users = @user.includes(avatar_attachment: :blob ).followers.paginate(page: params[:page])
+    @users = @user.includes(avatar_attachment: :blob).followers.paginate(page: params[:page])
     render 'show_follow'
   end
 
