@@ -106,6 +106,7 @@ When visiting other user profile, also it shows a list of the users that are fol
 - [RSpec](https://rspec.info/)
 - [Capybara](https://github.com/teamcapybara/capybara#using-capybara-with-rspec)
 - [Active Storage](https://edgeguides.rubyonrails.org/active_storage_overview.html)
+- [Cloudinary](https://cloudinary.com/documentation/rails_activestorage)
 
 
 ## 💻 Getting Started
@@ -132,6 +133,7 @@ Setup database with:
 
 ```
    rails db:create
+   rails active_storage:install
    rails db:migrate
 ```
 
