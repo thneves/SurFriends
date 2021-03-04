@@ -38,4 +38,10 @@ module UsersHelper
       gravatar_for(user)
     end
   end
+
+  def first_name(name)
+    name = name.split.first
+    name = name.capitalize
+    name
+  end
 end
