@@ -1,10 +1,6 @@
 <li class="post-format">
   <div class="post-user-feed">
-    <% @users.with_attached_avatar.each do |user| %>
-      <% if user == post.user %>
-        <%= avatar_for_post(user) %>
-      <% end %>
-    <% end %>
+    <%= user_post_avatar(@users, post.user) %>
     <span><%= link_to post.user.name, post.user %></span>
   </div>
   

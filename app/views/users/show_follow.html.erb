@@ -4,29 +4,19 @@
     <section class="user_info mt-5">
     <%= avatar_for_user(@user) %>
       <h1 class="aside-name"><%= @user.name %></h1>
-      <span class="aside-link text-center"><%= link_to "view my profile", @user %></span>
+      <span class="aside-link text-center"><%= link_to "view profile", @user %></span>
       <span class="text-center aside-count">Swell Posts: <%= @user.posts.count %></span>
     </section>
     <section class="stats-show-follow mb-4">
       <div class="stats-follow">
         <%= render 'shared/user_stats' %>
-      </div>
-      
-      <% if @users.any? %>
-        <div class="user_avatars">
-          <% @users.each do |user| %>
-            <%=  image_tag(url_for(user.avatar.variant(resize: "60x60", crop:'50x50+0+0'))) %>
-          <% end %>
-        </div>
-      <% end %>
-    </section>
+     </section>
   </aside>
 
   <div class="column col-lg-9 p-0">
   <%= render 'layouts/header' %>
 
-
-  <div class="col-12">
+  <div class="col-">
     <h3 class="text-center"><%= @title %></h3>
     <% if @users.any? %>
       <ul class="users follow">

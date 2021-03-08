@@ -1,60 +1,7 @@
 <%= provide(:title, "Home") %>
 
-<% if logged_in? %>
+<%= home_page %>
 
-  <div class="row">
-    <aside class="col-sm-3 col-md-3 col-lg-3">
-      <section class="top-section-user">
-        <%= render 'shared/user_info' %>
-      </section>
-      <section class="top-section-user">
-        <%= render 'shared/current_user_stats' %>
-      </section>
-      <section class="profile-links-sec">
-        <span class="profile-links"><%= link_to "HOME", root_path, class: 'profile-links' %></span>
-        <span class="profile-links"><%= link_to 'SURFERS', users_path, class: 'profile-links' %></span>
-        <span class="profile-links"><%= link_to "MY PROFILE", current_user, class: 'profile-links' %></span>
-      </section>
-    </aside>
-     
-    <div class="column col-lg-9 p-0">
-    <%= render 'layouts/header' %>
-    
-    <div class="row col-12">
-       <section class="col-sm-2 col-md-8 col-lg-9 feed-class">
-        <h4>POSTS</h4>
-        <div class="post-content-feed col-lg-12">
-          <h3>Post Something About Surf</h3>
-          <div class="">
-            <%= render 'shared/post_form' %>
-          </div>
-        </div>
-        <div class="feed-items col-lg-12">
-          <h4>LATEST POSTS</h4>
-          <%= render 'shared/feed' %>
-        </div>
-    </section>
 
-       <div class="side-right col-sm-2 col-lg-3 col-md-3 align-self-start">
-        <%= render 'shared/not_follow'%>
-      </div>
-    </div>
- 
 
-    </div>
-      
-</div>
- 
-<% else %>
 
-  <div class="center home-background">
-    
-    <div class="intro-text">
-      <h1> Welcome to SurFriends </h1>
-      <h2>Check your friend's swell reports</h2>
-      <%= link_to 'Register Now!', register_path, class:"btn btn-lg btn-register" %> 
-      <span> OR </span>
-      <%= link_to 'Log In', login_path, class:"btn btn-lg btn-login" %>
-    </div>  
-  </div>
-<% end %>
