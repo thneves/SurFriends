@@ -1,0 +1,7 @@
+<%= form_for(@post) do |f| %>
+  <%= render 'shared/error_messages.html.erb', object: f.object %>
+  <div class="field">
+    <%= f.text_area :content, placeholder: "How is the surf going..." %>
+  </div>
+  <%= f.submit "Post", class: "btn btn-large btn-primary" %>
+<% end %>

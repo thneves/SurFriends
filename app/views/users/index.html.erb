@@ -1,7 +1,19 @@
 <% provide(:title, 'All Surfers') %>
+<div class="container">
+  <%= render 'layouts/header' %>
+</div>
 
 <h1 class="text-center"> All Surfers </h1>
 
-<ul class="users">
-  <%= render @users %>
+<%= will_paginate @users %>
+
+<ul>
+  <% @users.each do |user| %>
+    <div class="surfers_list">
+    <%= avatar_for_user_100(user)%>
+      <%= link_to user.name, user %>
+    </div>
+  <% end %>
 </ul>
+
+<%= will_paginate %>

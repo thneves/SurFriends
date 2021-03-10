@@ -1,0 +1,30 @@
+<% provide(:title, @title) %>
+<div class="row">
+  <aside class="col-md-3 show-follow">
+    <section class="user_info mt-5">
+    <%= avatar_for_user(@user) %>
+      <h1 class="aside-name"><%= @user.name %></h1>
+      <span class="aside-link text-center"><%= link_to "view profile", @user %></span>
+      <span class="text-center aside-count">Swell Posts: <%= @user.posts.count %></span>
+    </section>
+    <section class="stats-show-follow mb-4">
+      <div class="stats-follow">
+        <%= render 'shared/user_stats' %>
+     </section>
+  </aside>
+
+  <div class="column col-lg-9 p-0">
+  <%= render 'layouts/header' %>
+
+  <div class="col-">
+    <h3 class="text-center"><%= @title %></h3>
+    <% if @users.any? %>
+      <ul class="users follow">
+        <%= render @users %>
+      </ul>
+      <%= will_paginate %>
+    <% end %>
+  </div>
+</div>
+
+<h1>OLAAAA</h1>

@@ -1,14 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe "Static Pages", type: :feature do
+RSpec.describe 'Static Pages', type: :feature do
+  let(:base_title) { 'Surfriends' }
 
-  let(:base_title) {"Surfriends"}
-  
-  describe "Home Page" do
-    
+  describe 'Home Page' do
     it "should have the content 'Surfriends'" do
       visit root_path
-      expect(page).to have_content('Surfriends')
+      expect(page).to have_content('Contact')
     end
 
     it "should have the title 'Home'" do
@@ -17,10 +15,10 @@ RSpec.describe "Static Pages", type: :feature do
     end
   end
 
-  describe "About Page" do
+  describe 'About Page' do
     it "should have the content 'About'" do
       visit about_path
-      expect(page).to have_content("About")
+      expect(page).to have_content('About')
     end
 
     it "should have the title 'About'" do
@@ -29,4 +27,3 @@ RSpec.describe "Static Pages", type: :feature do
     end
   end
 end
-  

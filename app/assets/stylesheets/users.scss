@@ -1,3 +1,104 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// USER PROFILE SIDE
+
+aside {
+  background-color: #213246;
+  z-index: 1;
+  height: 100vh;
+  section {
+    padding: 0;
+    margin: 0;
+    &:first-child {
+      border: 0;
+      padding-top: 0;
+    }
+    span {
+      display: block;
+      line-height: 1;
+    }
+    h1 {
+      font-size: 1.4em;
+      text-align: left;
+      margin-bottom: 3px;
+      margin-top: 0px;
+    }
+  }
+}
+
+.aside-name, .aside-link, .aside-count {
+  color: #516379;
+  margin: 8px 0;
+}
+
+.top-section-user {
+  background-color: #1b2a3d;
+}
+
+.profile-links-sec {
+  background-color: #213246;
+}
+
+
+.profile-links {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+  padding: 15px 0;
+   a {
+    color: #516679;
+  } &:hover a {
+    text-decoration: none;
+    color: #52a6e6;
+  }
+}
+
+.user-info-top {
+  padding: 20px;
+  margin: 0;
+  font-variant: small-caps;
+}
+
+// HOME - SIDE BAR WHO TO FOLLOW END
+
+.side-right {
+  padding: 0 20px 0 20px;
+  margin: 0;
+  border-left: 2px solid rgb(224, 224, 224);
+  background-color: #f5f6f8;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  h4 {
+    color:rgb(204, 202, 202);
+    font-weight: bold;
+    border-bottom:1px solid rgb(224, 224, 224);
+    padding-bottom: 20px;
+  }
+}
+
+.ul-users {
+  padding: 0;
+}
+
+.users-not-following {
+  img {
+    border-radius: 50%;
+    margin-right: 8px;
+  }
+  width: 200px;
+  margin-bottom: 20px;
+  list-style-type: none;
+  text-align: left;
+  padding-left: 0;
+  a {
+    color: #213246;
+    font-weight: bold;
+    &:hover {
+      color: #52a6e6;
+      text-decoration: none;
+    }
+  } 
+}

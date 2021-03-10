@@ -1,11 +1,13 @@
 <% provide(:title, "Edit Profile") %>
 
+<%= render 'layouts/header' %>
+
 <h1 class="text-center">Update Profile</h1>
 
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="col-md-6 col-md-offset-3 mx-auto">
     <%= form_for(@user) do |f| %>
-      <%= render 'shared/error_messages' %>
+      <%= render 'shared/error_messages', object: f.object %>
 
       <%= f.label :name %>
       <%= f.text_field :name %>
@@ -16,16 +18,14 @@
       <%= f.label :password%>
       <%= f.password_field :password %>
 
+      <%= f.label "Profile Photo" %>
+      <%= f.file_field :avatar%>
+
       <%= f.label :password_confirmation,  "Confirm Password" %>
       <%= f.password_field :password_confirmation %>
 
       <%= f.submit "Save Changes", class: "btn btn-large btn-primary" %>
     <% end %>
-    
-    <div class="">
-      <%= gravatar_for @user %>
-      <a href="http://gravatar.com/emails">Update</a>
-    </div>
     
   </div>
 </div>

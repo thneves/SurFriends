@@ -1,0 +1,19 @@
+<li class="post-format">
+  <div class="post-user-feed">
+    <%= user_post_avatar(@users, post.user) %>
+    <span><%= link_to post.user.name, post.user %></span>
+  </div>
+  
+  <div class="post-format-div">
+    
+    <span class="content"><%= post.content %></span>
+    <span class="timestamp">
+      <%= time_ago_in_words(post.created_at) %> ago.
+    </span>
+    <% if post.user == current_user %>
+      <%= link_to 'delete', post, method: :delete,
+                                              data: { confirm: "Are you sure?" },
+                                              title: post.content %>
+    <% end %>
+  </div>
+</li>
